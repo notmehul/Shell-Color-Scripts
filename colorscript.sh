@@ -9,6 +9,13 @@ else
     LS_CMD="$(command -v ls) ${DIR_COLORSCRIPTS}"
 fi
 
+DIR_ANIMATED_COLORSCRIPTS="/opt/shell-color-scripts/animated-colorscripts"
+if command -v find &>/dev/null; then
+    LS_CMD="$(command -v find) ${DIR_ANIMATED_COLORSCRIPTS} -maxdepth 1 -type f"
+else
+    LS_CMD="$(command -v ls) ${DIR_ANIMATED_COLORSCRIPTS}"
+fi
+
 list_colorscripts="$($LS_CMD | xargs -I $ basename $ | cut -d ' ' -f 1 | nl)"
 length_colorscripts="$($LS_CMD | wc -l)"
 
@@ -20,10 +27,11 @@ function _help() {
     printf "${fmt_help}" \
         "-h, --help, help" "Print this help." \
         "-l, --list, list" "List all installed color scripts." \
-        "-r, --random, random" "Run a random color script." \
+        "-r, --random, random" "Run a random NON-ANIMATED color script." \
+        "-R, --random-animated, random-animated" "Run a random ANIMATED color script." \
         "-e, --exec, exec" "Run a specified color script by SCRIPT NAME or INDEX."\
         "-b, --blacklist, blacklist" "Blacklist a color script by SCRIPT NAME or INDEX." \
-        "-a, --all, all" "List the outputs of all colorscripts with their SCRIPT NAME"
+        "-a, --all, all" "List the outputs of all NON-ANIMATED colorscripts with their SCRIPT NAME"
 }
 
 function _list() {
@@ -39,6 +47,16 @@ function _random() {
         | tr -d ' ' | tr '\t' ' ' | cut -d ' ' -f 2)"
     # echo "${random_colorscript}"
     exec "${DIR_COLORSCRIPTS}/${random_colorscript}"
+}
+
+function _random_animated() {
+    declare -i random_index=$RANDOM%$length_colorscripts
+    [[ $random_index -eq 0 ]] && random_index=1
+
+    random_colorscript="$(echo  "${list_colorscripts}" | sed -n ${random_index}p \
+        | tr -d ' ' | tr '\t' ' ' | cut -d ' ' -f 2)"
+    # echo "${random_colorscript}"
+    exec "${DIR_ANIMATED_COLORSCRIPTS}/${random_colorscript}"
 }
 
 function ifhascolorscipt() {
@@ -104,8 +122,11 @@ case "$#" in
             -l | --list | list)
                 _list
                 ;;
-            -r | --random | random)
+            -r | --random-static | random)
                 _random
+                ;;
+            -R | --random-animated | random-animated)
+                _random_animated
                 ;;
             -a | --all | all)
                 _run_all
