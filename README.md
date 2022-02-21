@@ -39,12 +39,12 @@ Download the source code from this repository or use a git clone:
     Description: A collection of terminal color scripts.
 
     Usage: colorscript [OPTION] [SCRIPT NAME/INDEX]
-    -h, --help, help    	Print this help.
-    -l, --list, list    	List all installed color scripts.
-    -r, --random, random	Run a random color script.
-    -e, --exec, exec    	Run a specified color script by SCRIPT NAME or INDEX.
-    -a, --all, all      	List the outputs of all colorscripts with their SCRIPT NAME
-
+    -h, --help, help        	Print this help.
+    -l, --list, list        	List all installed color scripts.
+    -r, --random, random    	Run a random color script.
+    -e, --exec, exec        	Run a specified color script by SCRIPT NAME or INDEX.
+    -a, --all, all          	List the outputs of all colorscripts with their SCRIPT NAME
+    -b, --blacklist, blacklist  Blacklist a color script by SCRIPT NAME or INDEX.
 
 # The Scripts Are Located in /opt/shell-color-scripts/colorscripts
 
