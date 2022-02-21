@@ -11,13 +11,16 @@ fi
 
 DIR_ANIMATED_COLORSCRIPTS="/opt/shell-color-scripts/animated-colorscripts"
 if command -v find &>/dev/null; then
-    LS_CMD="$(command -v find) ${DIR_ANIMATED_COLORSCRIPTS} -maxdepth 1 -type f"
+    LS_CMD_ANIMATED="$(command -v find) ${DIR_ANIMATED_COLORSCRIPTS} -maxdepth 1 -type f"
 else
-    LS_CMD="$(command -v ls) ${DIR_ANIMATED_COLORSCRIPTS}"
+    LS_CMD_ANIMATED="$(command -v ls) ${DIR_ANIMATED_COLORSCRIPTS}"
 fi
 
 list_colorscripts="$($LS_CMD | xargs -I $ basename $ | cut -d ' ' -f 1 | nl)"
 length_colorscripts="$($LS_CMD | wc -l)"
+
+list_colorscripts_animated="$($LS_CMD_ANIMATED | xargs -I $ basename $ | cut -d ' ' -f 1 | nl)"
+length_colorscripts_animated="$($LS_CMD_ANIMATED | wc -l)"
 
 fmt_help="  %-20s\t%-54s\n"
 function _help() {
@@ -26,16 +29,25 @@ function _help() {
     echo "Usage: colorscript [OPTION] [SCRIPT NAME/INDEX]"
     printf "${fmt_help}" \
         "-h, --help, help" "Print this help." \
-        "-l, --list, list" "List all installed color scripts." \
-        "-r, --random, random" "Run a random NON-ANIMATED color script." \
-        "-R, --random-animated, random-animated" "Run a random ANIMATED color script." \
-        "-e, --exec, exec" "Run a specified color script by SCRIPT NAME or INDEX."\
-        "-b, --blacklist, blacklist" "Blacklist a color script by SCRIPT NAME or INDEX." \
+        "-l, --list, list" "List all installed colorscripts." \
+        "-r, --random, random" "Run a random NON-ANIMATED colorscript." \
+        "-R, --random-animated, random-animated" "Run a random ANIMATED colorscript." \
+        "-e, --exec, exec" "Run a specified NON-ANIMATED colorscript by SCRIPT NAME or INDEX."\
+        "-E, --exec-animated, exec-animated" "Run a specified ANIMATED colorscript by SCRIPT NAME or INDEX."\
+        "-b, --blacklist, blacklist" "Blacklist a colorscript by SCRIPT NAME or INDEX." \
         "-a, --all, all" "List the outputs of all NON-ANIMATED colorscripts with their SCRIPT NAME"
 }
 
 function _list() {
-    echo "There are "$($LS_CMD | wc -l)" installed color scripts:"
+    echo "--------------------------------------------------"
+    echo "There are "$($LS_CMD_ANIMATED | wc -l)" ANIMATED colorscripts. Run with:"
+    echo "    colorscript -E name-or-index"
+    echo "--------------------------------------------------"
+    echo "${list_colorscripts_animated}"
+    echo "--------------------------------------------------"
+    echo "There are "$($LS_CMD | wc -l)" NON-ANIMATED colorscripts. Run with:"
+    echo "    colorscript -e name-or-index"
+    echo "--------------------------------------------------"
     echo "${list_colorscripts}"
 }
 
@@ -63,11 +75,26 @@ function ifhascolorscipt() {
     [[ -e "${DIR_COLORSCRIPTS}/$1" ]] && echo "Has this color script."
 }
 
+function ifhascolorscipt_animated() {
+    [[ -e "${DIR_ANIMATED_COLORSCRIPTS}/$1" ]] && echo "Has this color script."
+}
+
 function _run_by_name() {
     if [[ "$1" == "random" ]]; then
         _random
     elif [[ -n "$(ifhascolorscipt "$1")" ]]; then
         exec "${DIR_COLORSCRIPTS}/$1"
+    else
+        echo "Input error, Don't have color script named $1."
+        exit 1
+    fi
+}
+
+function _run_by_name_animated() {
+    if [[ "$1" == "random" ]]; then
+        _random
+    elif [[ -n "$(ifhascolorscipt_animated "$1")" ]]; then
+        exec "${DIR_ANIMATED_COLORSCRIPTS}/$1"
     else
         echo "Input error, Don't have color script named $1."
         exit 1
@@ -81,7 +108,19 @@ function _run_by_index() {
             | tr -d ' ' | tr '\t' ' ' | cut -d ' ' -f 2)"
         exec "${DIR_COLORSCRIPTS}/${colorscript}"
     else
-        echo "Input error, Don't have color script indexed $1."
+        echo "Input error, Don't have NON-ANIMATED color script indexed $1."
+        exit 1
+    fi
+}
+
+function _run_by_index_animated() {
+    if [[ "$1" -gt 0 && "$1" -le "${length_colorscripts_animated}" ]]; then
+
+        colorscript="$(echo  "${list_colorscripts_animated}" | sed -n ${1}p \
+            | tr -d ' ' | tr '\t' ' ' | cut -d ' ' -f 2)"
+        exec "${DIR_ANIMATED_COLORSCRIPTS}/${colorscript}"
+    else
+        echo "Input error, Don't have ANIMATED color script indexed $1."
         exit 1
     fi
 }
@@ -91,6 +130,14 @@ function _run_colorscript() {
         _run_by_index "$1"
     else
         _run_by_name "$1"
+    fi
+}
+
+function _run_animated_colorscript() {
+    if [[ "$1" =~ ^[0-9]+$ ]]; then
+        _run_by_index_animated "$1"
+    else
+        _run_by_name_animated "$1"
     fi
 }
 
@@ -140,6 +187,8 @@ case "$#" in
     2)
         if [[ "$1" == "-e" || "$1" == "--exec" || "$1" == "exec" ]]; then
             _run_colorscript "$2"
+        elif [[ "$1" == "-E" || "$1" == "--exec-animated" || "$1" == "exec-animated" ]]; then
+            _run_animated_colorscript "$2"
         elif [[ "$1" == "-b" || "$1" == "--blacklist" || "$1" == "blacklist" ]]; then
             _blacklist_colorscript "$2"
         else
