@@ -44,7 +44,7 @@ Download the source code from this repository or use a git clone:
     -r, --random, random    	Run a random color script.
     -e, --exec, exec        	Run a specified color script by SCRIPT NAME or INDEX.
     -a, --all, all          	List the outputs of all colorscripts with their SCRIPT NAME
-    -b, --blacklist, blacklist  Blacklist a color script by SCRIPT NAME or INDEX.
+    -b, --blacklist, blacklist	Blacklist a color script by SCRIPT NAME or INDEX.
 
 # The Scripts Are Located in /opt/shell-color-scripts/colorscripts
 
