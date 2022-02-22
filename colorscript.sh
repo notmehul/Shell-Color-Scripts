@@ -5,12 +5,16 @@
 DIR_COLORSCRIPTS="/opt/shell-color-scripts/colorscripts"
 if command -v find &>/dev/null; then
     LS_CMD="$(command -v find) ${DIR_COLORSCRIPTS} -maxdepth 1 -type f"
+    LS_CMD_B="$(command -v find) ${DIR_COLORSCRIPTS}/blacklisted -maxdepth 1 -type f"
 else
     LS_CMD="$(command -v ls) ${DIR_COLORSCRIPTS}"
+    LS_CMD_B="$(command -v ls) ${DIR_COLORSCRIPTS}/blacklisted"
 fi
 
 list_colorscripts="$($LS_CMD | xargs -I $ basename $ | cut -d ' ' -f 1 | nl)"
 length_colorscripts="$($LS_CMD | wc -l)"
+list_blacklist="$($LS_CMD_B 2>/dev/null | xargs -I $ basename $ | cut -d ' ' -f 1 | nl || "")" 
+length_blacklist="$($LS_CMD_B 2>/dev/null | wc -l || 0)"
 
 fmt_help="  %-20s\t%-54s\n"
 function _help() {
@@ -29,6 +33,11 @@ function _help() {
 function _list() {
     echo "There are "$($LS_CMD | wc -l)" installed color scripts:"
     echo "${list_colorscripts}"
+}
+
+function _list_blacklist() {
+    echo "There are $length_blacklist blacklisted color scripts:"
+    echo "${list_blacklist}"
 }
 
 function _random() {
@@ -104,6 +113,9 @@ case "$#" in
             -l | --list | list)
                 _list
                 ;;
+            -b | --blacklist | blacklist)
+                _list_blacklist
+                ;;
             -r | --random | random)
                 _random
                 ;;
@@ -131,4 +143,3 @@ case "$#" in
         exit 1
         ;;
 esac
-
