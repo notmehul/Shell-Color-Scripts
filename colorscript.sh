@@ -2,7 +2,12 @@
 
 # Simple CLI for shell-color-scripts
 
-DIR_COLORSCRIPTS="/opt/shell-color-scripts/colorscripts"
+if [[ "$DEV" -gt 0 ]]; then
+    DIR_COLORSCRIPTS="./colorscripts"
+else
+    DIR_COLORSCRIPTS="/opt/shell-color-scripts/colorscripts"
+fi
+
 if command -v find &>/dev/null; then
     LS_CMD="$(command -v find) ${DIR_COLORSCRIPTS} -maxdepth 1 -type f"
     LS_CMD_B="$(command -v find) ${DIR_COLORSCRIPTS}/blacklisted -maxdepth 1 -type f"
@@ -101,6 +106,14 @@ function _blacklist_colorscript() { # by name only
     sudo mv "${DIR_COLORSCRIPTS}/$1" "${DIR_COLORSCRIPTS}/blacklisted"
 }
 
+function _unblacklist_colorscript() { # by name only
+    if [ -f "${DIR_COLORSCRIPTS}/blacklisted/$1" ]; then
+        sudo mv "${DIR_COLORSCRIPTS}/blacklisted/$1" "${DIR_COLORSCRIPTS}"
+    else
+        echo "Input error. Script $1 is not blacklisted!"
+    fi
+}
+
 case "$#" in
     0)
         _help
@@ -133,6 +146,8 @@ case "$#" in
             _run_colorscript "$2"
         elif [[ "$1" == "-b" || "$1" == "--blacklist" || "$1" == "blacklist" ]]; then
             _blacklist_colorscript "$2"
+        elif [[ "$1" == "-u" || "$1" == "--unblacklist" || "$1" == "unblacklist" ]]; then
+            _unblacklist_colorscript "$2"
         else
             echo "Input error."
             exit 1
@@ -143,3 +158,4 @@ case "$#" in
         exit 1
         ;;
 esac
+
