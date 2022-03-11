@@ -32,6 +32,7 @@ function _help() {
         "-r, --random, random" "Run a random color script." \
         "-e, --exec, exec" "Run a specified color script by SCRIPT NAME or INDEX."\
         "-b, --blacklist, blacklist" "Blacklist a color script by SCRIPT NAME or INDEX." \
+        "-u, --unblacklist, unblacklist" "Unblacklist a color script by SCRIPT NAME or INDEX." \
         "-a, --all, all" "List the outputs of all colorscripts with their SCRIPT NAME"
 }
 
