@@ -19,7 +19,7 @@ Alternately, you could also install shell-color-scripts from the AUR using an AU
 
 	yay -S shell-color-scripts
 
-# Installing shell-color-scripts on other Linux distrtibutions
+# Installing shell-color-scripts on other Linux distributions
 
 Download the source code from this repository or use a git clone:
 
@@ -31,7 +31,10 @@ Download the source code from this repository or use a git clone:
     sudo make uninstall
 
     # optional for zsh completion
-    sudo cp zsh_completion/_colorscript /usr/share/zsh/site-functions
+    sudo cp completions/_colorscript /usr/share/zsh/site-functions
+
+    # optional for fish shell completion
+    sudo cp completions/colorscript.fish /usr/share/fish/vendor_completions.d
 
 # Usage
 
