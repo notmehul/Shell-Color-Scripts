@@ -53,6 +53,6 @@ ${boldon}${yellowfbright}  ▓▓▓${boldon}${redfbright}▓▓▓${boldon}${ye
 ${boldon}${yellowfbright}  ▓▓▓${boldon}${redfbright}▓▓▓${boldon}${yellowfbright}▓▓                                                          ░▓${boldon}${redfbright}▓▓▓▓${boldon}${yellowfbright}▓   
 ${boldon}${yellowfbright}  ▓▓${boldon}${redfbright}▓${boldon}${yellowfbright}▓▓                                                               ▓${boldon}${redfbright}▓▓░${boldon}${yellowfbright}░   
 ${boldon}${yellowfbright}  ░▓▓${boldon}${redfbright}                                                                  ${boldon}${yellowfbright} ▒▓${boldon}${redfbright}${boldon}${yellowfbright}▓   
-
+${reset}
 EOF
 
