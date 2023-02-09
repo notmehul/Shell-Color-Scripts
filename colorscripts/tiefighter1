@@ -40,19 +40,19 @@ initializeANSI
 cat << EOF
 
 ${invon}
-${redf}   ▄█     █▄    ${greenf}   ▄▄     ▄▄    ${yellowf}   ▄▄     ▄▄    ${bluef}   ▄▄     ▄▄    ${purplef}   ▄▄     ▄▄    ${cyanf}   ▄█     █▄   
-${redf} ▄█▀  ▄▄▄  ▀█▄  ${greenf} ▄█▀  ▄▄▄  ▀█▄  ${yellowf} ▄█▀  ▄▄▄  ▀█▄  ${bluef} ▄█▀  ▄▄▄  ▀█▄  ${purplef} ▄█▀  ▄▄▄  ▀█▄  ${cyanf} ▄█▀  ▄▄▄  ▀█▄ 
-${redf} ██▄▄██▀██▄▄██  ${greenf} ██▄▄██▀██▄▄██  ${yellowf} ██▄▄██▀██▄▄██  ${bluef} ██▄▄██▀██▄▄██  ${purplef} ██▄▄██▀██▄▄██  ${cyanf} ██▄▄██▀██▄▄██ 
-${redf} ██▀▀█████▀▀██  ${greenf} ██▀▀█████▀▀██  ${yellowf} ██▀▀█████▀▀██  ${bluef} ██▀▀█████▀▀██  ${purplef} ██▀▀█████▀▀██  ${cyanf} ██▀▀█████▀▀██ 
-${redf} ▀█▄  ▀▀▀  ▄█▀  ${greenf} ▀█▄  ▀▀▀  ▄█▀  ${yellowf} ▀█▄  ▀▀▀  ▄█▀  ${bluef} ▀█▄  ▀▀▀  ▄█▀  ${purplef} ▀█▄  ▀▀▀  ▄█▀  ${cyanf} ▀█▄  ▀▀▀  ▄█▀ 
-${redf}   ▀█     █▀    ${greenf}   ▀▀     ▀▀    ${yellowf}   ▀▀     ▀▀    ${bluef}   ▀▀     ▀▀    ${purplef}   ▀▀     ▀▀    ${cyanf}   ▀█     █▀   
+${redf}   ▄█     █▄    ${greenf}   ▄▄     ▄▄    ${yellowf}   ▄▄     ▄▄    ${bluef}   ▄▄     ▄▄    ${purplef}   ▄▄     ▄▄
+${redf} ▄█▀  ▄▄▄  ▀█▄  ${greenf} ▄█▀  ▄▄▄  ▀█▄  ${yellowf} ▄█▀  ▄▄▄  ▀█▄  ${bluef} ▄█▀  ▄▄▄  ▀█▄  ${purplef} ▄█▀  ▄▄▄  ▀█▄
+${redf} ██▄▄██▀██▄▄██  ${greenf} ██▄▄██▀██▄▄██  ${yellowf} ██▄▄██▀██▄▄██  ${bluef} ██▄▄██▀██▄▄██  ${purplef} ██▄▄██▀██▄▄██
+${redf} ██▀▀█████▀▀██  ${greenf} ██▀▀█████▀▀██  ${yellowf} ██▀▀█████▀▀██  ${bluef} ██▀▀█████▀▀██  ${purplef} ██▀▀█████▀▀██
+${redf} ▀█▄  ▀▀▀  ▄█▀  ${greenf} ▀█▄  ▀▀▀  ▄█▀  ${yellowf} ▀█▄  ▀▀▀  ▄█▀  ${bluef} ▀█▄  ▀▀▀  ▄█▀  ${purplef} ▀█▄  ▀▀▀  ▄█▀
+${redf}   ▀█     █▀    ${greenf}   ▀▀     ▀▀    ${yellowf}   ▀▀     ▀▀    ${bluef}   ▀▀     ▀▀    ${purplef}   ▀▀     ▀▀
 ${boldon}${invon}
-${redfbright}   ▄█     █▄    ${greenfbright}   ▄▄     ▄▄    ${yellowfbright}   ▄▄     ▄▄    ${bluefbright}   ▄▄     ▄▄    ${purplefbright}   ▄▄     ▄▄    ${cyanfbright}   ▄█     █▄   
-${redfbright} ▄█▀  ▄▄▄  ▀█▄  ${greenfbright} ▄█▀  ▄▄▄  ▀█▄  ${yellowfbright} ▄█▀  ▄▄▄  ▀█▄  ${bluefbright} ▄█▀  ▄▄▄  ▀█▄  ${purplefbright} ▄█▀  ▄▄▄  ▀█▄  ${cyanfbright} ▄█▀  ▄▄▄  ▀█▄ 
-${redfbright} ██▄▄██▀██▄▄██  ${greenfbright} ██▄▄██▀██▄▄██  ${yellowfbright} ██▄▄██▀██▄▄██  ${bluefbright} ██▄▄██▀██▄▄██  ${purplefbright} ██▄▄██▀██▄▄██  ${cyanfbright} ██▄▄██▀██▄▄██ 
-${redfbright} ██▀▀█████▀▀██  ${greenfbright} ██▀▀█████▀▀██  ${yellowfbright} ██▀▀█████▀▀██  ${bluefbright} ██▀▀█████▀▀██  ${purplefbright} ██▀▀█████▀▀██  ${cyanfbright} ██▀▀█████▀▀██ 
-${redfbright} ▀█▄  ▀▀▀  ▄█▀  ${greenfbright} ▀█▄  ▀▀▀  ▄█▀  ${yellowfbright} ▀█▄  ▀▀▀  ▄█▀  ${bluefbright} ▀█▄  ▀▀▀  ▄█▀  ${purplefbright} ▀█▄  ▀▀▀  ▄█▀  ${cyanfbright} ▀█▄  ▀▀▀  ▄█▀ 
-${redfbright}   ▀█     █▀    ${greenfbright}   ▀▀     ▀▀    ${yellowfbright}   ▀▀     ▀▀    ${bluefbright}   ▀▀     ▀▀    ${purplefbright}   ▀▀     ▀▀    ${cyanfbright}   ▀█     █▀   
+${redfbright}   ▄█     █▄    ${greenfbright}   ▄▄     ▄▄    ${yellowfbright}   ▄▄     ▄▄    ${bluefbright}   ▄▄     ▄▄    ${purplefbright}   ▄▄     ▄▄
+${redfbright} ▄█▀  ▄▄▄  ▀█▄  ${greenfbright} ▄█▀  ▄▄▄  ▀█▄  ${yellowfbright} ▄█▀  ▄▄▄  ▀█▄  ${bluefbright} ▄█▀  ▄▄▄  ▀█▄  ${purplefbright} ▄█▀  ▄▄▄  ▀█▄
+${redfbright} ██▄▄██▀██▄▄██  ${greenfbright} ██▄▄██▀██▄▄██  ${yellowfbright} ██▄▄██▀██▄▄██  ${bluefbright} ██▄▄██▀██▄▄██  ${purplefbright} ██▄▄██▀██▄▄██
+${redfbright} ██▀▀█████▀▀██  ${greenfbright} ██▀▀█████▀▀██  ${yellowfbright} ██▀▀█████▀▀██  ${bluefbright} ██▀▀█████▀▀██  ${purplefbright} ██▀▀█████▀▀██
+${redfbright} ▀█▄  ▀▀▀  ▄█▀  ${greenfbright} ▀█▄  ▀▀▀  ▄█▀  ${yellowfbright} ▀█▄  ▀▀▀  ▄█▀  ${bluefbright} ▀█▄  ▀▀▀  ▄█▀  ${purplefbright} ▀█▄  ▀▀▀  ▄█▀
+${redfbright}   ▀█     █▀    ${greenfbright}   ▀▀     ▀▀    ${yellowfbright}   ▀▀     ▀▀    ${bluefbright}   ▀▀     ▀▀    ${purplefbright}   ▀▀     ▀▀
 ${reset}
 
 EOF
