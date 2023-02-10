@@ -1,6 +1,6 @@
 # Shell Color Scripts
 
-![Screenshot of shell-color-scripts]()
+![Screenshot of shell-color-scripts](https://github.com/notmehul/Shell-Color-Scripts/blob/main/Screenshot%20Colorscript.png)
 
 A collection of beautiful terminal color scripts to make your terminal even more prettier!
 
