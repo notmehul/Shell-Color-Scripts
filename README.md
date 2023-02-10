@@ -16,7 +16,7 @@ Download the source code from this repository or use a git clone:
     sh colorscript.sh
 
 *Optional:* you can convert it into an executable:
-    ```sh
+    ```
     chmod u+x colorscript.sh
     ```
 
