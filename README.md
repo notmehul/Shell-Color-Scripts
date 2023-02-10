@@ -13,7 +13,7 @@ Download the source code from this repository or use a git clone:
 
 	git clone 
 	cd shell-color-scripts
-    sh colorscript.sh
+    	sh colorscript.sh
 
 *Optional:* you can convert it into an executable:
     ```
@@ -22,9 +22,9 @@ Download the source code from this repository or use a git clone:
 
 For even more fun, add the following line to your .zshrc and you will run a random color script each time you open a terminal:
 
-	```sh
+	```
 	./colorscript.sh
-    ```
+   	```
 
 # Credits
 
