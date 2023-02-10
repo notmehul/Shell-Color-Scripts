@@ -1,72 +1,35 @@
 # Shell Color Scripts
 
-![Screenshot of shell-color-scripts](https://gitlab.com/dwt1/dotfiles/raw/master/.screenshots/dotfiles12.png)
+![Screenshot of shell-color-scripts]()
 
-A collection of terminal color scripts I've accumulated over the years.
-Included 52 beautiful terminal color scripts.
+A collection of beautiful terminal color scripts to make your terminal even more prettier!
 
-# Installing shell-color-scripts on Arch Linux
+Included are 30+ beautiful terminal color scripts.
 
-All you need to do is download the PKGBUILD from this repository.  Then run the following command:
 
-	makepkg -cf
-
-This will create a file that ends in .pkg.tar.xz (for example, shell-color-scripts-0.1-1-x86_64.pkg.tar.xz).  Then run:
-
-	sudo pacman -U *.pkg.tar.zst
-
-Alternately, you could also install shell-color-scripts from the AUR using an AUR helper such as yay:
-
-	yay -S shell-color-scripts
-
-# Installing shell-color-scripts on NixOS or nixpkgs (unstable only) 
-
-Shell-color-scripts is packaged for nixpkgs (unstable only). Although manpages and shell completions are not packaged *yet*
-
-##### For NixOS users (unstable only)
-
-    nix-env -iA nixos.dt-shell-color-scripts
-##### For nixpkgs users (unstable only)
-    
-    nix-env -iA nixpkgs.dt-shell-color-scripts
-
-# Installing shell-color-scripts on other Linux distributions
+# Using shell-color-scripts on MacOS 
 
 Download the source code from this repository or use a git clone:
 
-	git clone https://gitlab.com/dwt1/shell-color-scripts.git
+	git clone 
 	cd shell-color-scripts
-    sudo make install
+    sh colorscript.sh
 
-    # Removal
-    sudo make uninstall
+*Optional:* you can convert it into an executable:
+    ```sh
+    chmod u+x colorscript.sh
+    ```
 
-    # optional for zsh completion
-    sudo cp completions/_colorscript /usr/share/zsh/site-functions
+For even more fun, add the following line to your .zshrc and you will run a random color script each time you open a terminal:
 
-    # optional for fish shell completion
-    sudo cp completions/colorscript.fish /usr/share/fish/vendor_completions.d
+	```sh
+	./colorscript.sh
+    ```
 
-# Usage
+# Credits
 
-    colorscript --help
-    Description: A collection of terminal color scripts.
+This is essentially a rework of a linux package made and maintained by Derek Taylor, you can find it here:
+* [Derek Taylor](https://gitlab.com/dwt1/shell-color-scripts)
 
-    Usage: colorscript [OPTION] [SCRIPT NAME/INDEX]
-    -h, --help, help        	Print this help.
-    -l, --list, list        	List all installed color scripts.
-    -r, --random, random    	Run a random color script.
-    -e, --exec, exec        	Run a specified color script by SCRIPT NAME or INDEX.
-    -a, --all, all          	List the outputs of all colorscripts with their SCRIPT NAME
-    -b, --blacklist, blacklist	Blacklist a color script by SCRIPT NAME or INDEX.
-
-# The Scripts Are Located in /opt/shell-color-scripts/colorscripts
-
-The source for shell-color-scripts is placed in:
-
-	/opt/shell-color-scripts/colorscripts
-
-For even more fun, add the following line to your .bashrc or .zshrc and you will run a random color script each time you open a terminal:
-
-	### RANDOM COLOR SCRIPT ###
-	colorscript random
+I highly reccomend his YouTube channel to anyone who is interested in Linux/Unix based systems. 
+* [DistroTube](https://www.youtube.com/@DistroTube)
