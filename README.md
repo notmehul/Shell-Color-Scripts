@@ -22,9 +22,9 @@ Download the source code from this repository or use a git clone:
 
 For even more fun, add the following line to your .zshrc and you will run a random color script each time you open a terminal:
 
-	```
+	
 	./colorscript.sh
-   	```
+   	
 
 # Credits
 
